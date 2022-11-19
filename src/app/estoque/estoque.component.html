@@ -1,0 +1,61 @@
+<html>
+<body>    
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Register Today</h3>
+                    <p>Fill in the data below.</p>
+                    <form class="requires-validation" novalidate>
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" name="id" [(ngModel)]="produto.id" disabled required>
+                         </div>
+                        <div class="col-md-12">
+                           <input class="form-control" type="text" name="nome" [(ngModel)]="produto.nome" placeholder="Nome do Produto" required>
+                        </div>
+                        <div class="col-md-24">
+                            <input class="form-control" type="text" name="descricao" [(ngModel)]="produto.descricao" placeholder="Descrição" required>
+                        </div>
+                       <div class="col-md-12">
+                          <input class="form-control" type="text" name="text" [(ngModel)]="produto.preco" placeholder="Preço" required>
+                       </div>
+                        <div class="form-button mt-3" *ngIf="produtos.length<=idAtual">
+                            <button id="submit" type="submit" class="btn btn-primary" (click)="Registrar()">Registrar</button>
+                        </div>
+                        <div class="form-button mt-3">
+                            <button id="anterior" type="submit" class="btn btn-primary" [disabled]="btnAnteriorDisable"(click)="Anterior()">Anterior</button>
+                            <button id="proximo" type="submit" class="btn btn-primary" [disabled]="btnProximoDisable" (click)="Proximo()">Próximo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<thead>
+    <tr role="row">
+        <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+            aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px;">ID
+        </th>
+        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+            aria-label="Position: activate to sort column ascending" style="width: 248px;">Nome</th>
+        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+            aria-label="Office: activate to sort column ascending" style="width: 215px;">Descrição</th>
+        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+            aria-label="Age: activate to sort column ascending" style="width: 51px;">Preço</th>
+            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                aria-label="Age: activate to sort column ascending" style="width: 51px;">Excluir</th>
+    </tr>
+</thead>
+<tbody>
+    <tr class="odd" *ngFor="let produto of produtos;let i = index">
+        <td class="sorting_1">{{produto.id}}</td>
+        <td>{{produto.nome}}</td>
+        <td>{{produto.descricao}}</td>
+        <td>{{produto.preco}}</td>
+        <td><button id="proximo" type="submit" class="btn btn-primary" (click)="Excluir(i)">Excluir</button></td>
+    </tr>
+</tbody>
+</body>
+</html>
