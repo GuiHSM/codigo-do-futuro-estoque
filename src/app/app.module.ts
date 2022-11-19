@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstoqueComponent } from './estoque/estoque.component';
+import { ReaisConverterPipe } from './reais-converter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EstoqueComponent
+    EstoqueComponent,
+    ReaisConverterPipe
   ],
   imports: [
     BrowserModule,
