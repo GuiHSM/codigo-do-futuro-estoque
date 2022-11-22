@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Produto } from '../Models/Produto';
+import { Produto } from '../../models/Produto';
 
 @Component({
   selector: 'app-estoque',
@@ -9,6 +9,7 @@ import { Produto } from '../Models/Produto';
 export class EstoqueComponent {
   constructor() { }
   public btnProximoDisable:boolean = true;
+  public preco:String="R$0,00";
   public btnAnteriorDisable:boolean = false;
   public produto:Produto = {} as Produto;
   public produtos:Produto[] = [
@@ -81,5 +82,23 @@ export class EstoqueComponent {
       this.btnAnteriorDisable=true;
       console.log("D");
     }
+  }
+  impedirTexto(){
+    debugger;
+    let novoChar=this.preco.at(this.preco.length-1);
+    console.log(novoChar);
+    let ponto = ".";
+    if(this.preco.slice(0,this.preco.length-1).includes(ponto)){
+      ponto="";
+    }
+    if(isNaN(Number(novoChar))&&novoChar!=ponto){
+      this.preco=this.preco.slice(0,this.preco.length-1);
+    }
+    debugger;
+    if(this.preco=="R$0.0"){
+      this.preco="R$0.00";
+    }
+    if(!this.preco.includes("R$")) this.preco=`R$${this.preco}`;
+    this.produto.preco=Number(this.preco.slice(2).replace(",","."));
   }
 }

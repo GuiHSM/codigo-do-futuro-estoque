@@ -1,0 +1,20 @@
+<table class="table table-primary">
+    <thead>
+        <tr role="row">
+            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 20px;">ID
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                aria-label="Position: activate to sort column ascending" style="width: 514px;">Nome</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Age: activate to sort column ascending" style="width: 51px;">Escolher</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd" *ngFor="let cliente of clientes;let i = index">
+            <td class="sorting_1">{{cliente.id}}</td>
+            <td>{{cliente.nome}}</td>
+            <td><button id="proximo" type="submit" class="btn btn-primary" (click)="Alterar(i)">Escolher</button></td>
+        </tr>
+    </tbody>
+    </table>

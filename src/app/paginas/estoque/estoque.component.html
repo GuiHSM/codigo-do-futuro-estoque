@@ -18,9 +18,9 @@
                             <input class="form-control" type="text" name="descricao" [(ngModel)]="produto.descricao" placeholder="Descrição" required>
                         </div>
                        <div class="col-md-12">
-                          <input class="form-control" type="text" name="text" [(ngModel)]="produto.preco" placeholder="Preço" required>
+                          <input class="form-control" type="text" name="text" (keydown)="impedirTexto()" (keyup)="impedirTexto()" [(ngModel)]="preco" placeholder="Preço" required>
                        </div>
-                        <div class="form-button mt-3" *ngIf="produtos.length<=idAtual">
+                        <div class="form-button mt-6" *ngIf="produtos.length<=idAtual">
                             <button id="submit" type="submit" class="btn btn-primary" (click)="Registrar()">Registrar</button>
                         </div>
                         <div class="form-button mt-3">
